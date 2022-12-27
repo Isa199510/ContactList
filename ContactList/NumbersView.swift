@@ -13,27 +13,30 @@ struct NumbersView: View {
     
     var body: some View {
         
-        List(persons) { person in
-            
-            Section(header: Text(person.lastname)) {
+        NavigationStack {
+            List(persons) { person in
                 
-                VStack(spacing: 15) {
-                    HStack {
-                        Image(systemName: "phone")
-                            .foregroundStyle(.blue)
-                        Text(person.phone)
-                        Spacer()
-                    }
+                Section(header: Text(person.lastname)) {
                     
-                    HStack {
-                        Image(systemName: "mail")
-                            .foregroundStyle(.blue)
-                        Text(person.email)
-                        Spacer()
+                    VStack(spacing: 15) {
+                        HStack {
+                            Image(systemName: "phone")
+                                .foregroundStyle(.blue)
+                            Text(person.phone)
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            Image(systemName: "mail")
+                                .foregroundStyle(.blue)
+                            Text(person.email)
+                            Spacer()
+                        }
                     }
                 }
+                
             }
-            
+            .navigationTitle("Contact List")
         }
     }
 }
